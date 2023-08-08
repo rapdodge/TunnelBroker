@@ -384,11 +384,13 @@ class TunnelController extends Controller
                         $command[] = "umask 077";
                         $command[] = "echo $localPrivKey > $privateKey";
                         $command[] = "echo $localPubKey > $pub";
-                        $command[] = "sudo wg set $tunnel->interface listen-port $tunnel->srcport private-key $privateKey peer $remotePubKey allowed-ips $allowedIP endpoint $tunnel->remote:$tunnel->dstport";
+//                        $command[] = "sudo wg set $tunnel->interface listen-port $tunnel->srcport private-key $privateKey peer $remotePubKey allowed-ips $allowedIP endpoint $tunnel->remote:$tunnel->dstport";
+                        $command[] = "sudo wg set $tunnel->interface listen-port $tunnel->srcport private-key $privateKey peer $remotePubKey allowed-ips $allowedIP";
                         break;
                     case 'change':
-                        $command[] = "sudo wg set $tunnel->interface listen-port $tunnel->srcport peer $remotePubKey allowed-ips $allowedIP endpoint $tunnel->remote:$tunnel->dstport";
-                        break;
+//                        $command[] = "sudo wg set $tunnel->interface listen-port $tunnel->srcport peer $remotePubKey allowed-ips $allowedIP endpoint $tunnel->remote:$tunnel->dstport";
+                         $command[] = "sudo wg set $tunnel->interface listen-port $tunnel->srcport peer $remotePubKey allowed-ips $allowedIP";
+                       break;
                 }
                 break;
             default:
