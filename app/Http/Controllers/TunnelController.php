@@ -334,7 +334,7 @@ class TunnelController extends Controller
             case "ipip":
             case "ip6gre":
             case "ip6ip6":
-                $ipShell = "sudo ip tunnel $action mode $tunnel->mode name $tunnel->interface";
+                $ipShell = "sudo ip link $action mode $tunnel->mode name $tunnel->interface";
                 switch ($action) {
                     case 'add':
                         if ($tunnel->mode == "ip6gre" || $tunnel->mode == "ip6ip6") {
